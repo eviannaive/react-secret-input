@@ -1,7 +1,12 @@
 {
-  "name": "react-secret-input",
+  "name": "@arisevan/react-secret-input",
   "version": "1.0.0",
   "description": "A React masked input component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eviannaive/react-secret-input.git"
+  },
+  "homepage": "https://eviannaive.github.io/react-secret-input/",
   "license": "MIT",
   "author": "Evianna",
   "main": "dist/index.cjs",
@@ -9,6 +14,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsup src/index.tsx --format esm,cjs --dts --watch",
+    "build": "tsup src/index.tsx --format esm,cjs --dts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
