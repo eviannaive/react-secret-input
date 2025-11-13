@@ -1,6 +1,5 @@
 # React Secret Input
 
-React Secret Input is my first attempt at creating a **React component library**, and it’s still a work in progress.
 It’s a lightweight input component for securely masking sensitive data, fully styled with Tailwind CSS and compatible with React Hook Form for validation.
 
 ---
@@ -14,6 +13,17 @@ It’s a lightweight input component for securely masking sensitive data, fully 
 - TypeScript ready
 - Lightweight and fast
 
-> 🚀  It’s actively being developed !
+---
+
+## Demo
+
+Check out the live demo here: [React Secret Input Demo](https://eviannaive.github.io/react-secret-input/)
 
 ---
+
+## Installation
+
+To install the package, run:
+
+```bash
+npm install react-secret-input
