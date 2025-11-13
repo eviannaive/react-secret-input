@@ -1,0 +1,9 @@
+node_modules/
+src/
+example/
+tests/
+.vscode/
+.gitignore
+README.md
+tsconfig.json
+pnpm-lock.yaml

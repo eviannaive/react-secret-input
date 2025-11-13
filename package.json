@@ -1,0 +1,43 @@
+{
+  "name": "react-secret-input",
+  "version": "1.0.0",
+  "description": "A React masked input component",
+  "license": "MIT",
+  "author": "Evianna",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup src/index.tsx --format esm,cjs --dts --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "react component",
+    "input",
+    "mask",
+    "secret",
+    "password",
+    "sensitive-data",
+    "form"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwindcss": ">=3",
+    "next": ">=15"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.3.1"
+  },
+  "files": [
+    "dist"
+  ]
+}

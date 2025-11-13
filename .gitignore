@@ -1,0 +1,18 @@
+# Node
+dist/
+node_modules/
+.env
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+#example
+example/.next/
+example/node_modules/
+example/.env
+
+# OS
+.DS_Store
+Thumbs.db
