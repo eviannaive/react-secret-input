@@ -1,6 +1,6 @@
 {
   "name": "@arisevan/react-secret-input",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A React masked input component",
   "repository": {
     "type": "git",
