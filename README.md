@@ -26,4 +26,22 @@ Check out the live demo here: [React Secret Input Demo](https://eviannaive.githu
 To install the package, run:
 
 ```bash
-npm install react-secret-input
+npm install @arisevan/react-secret-input
+```
+
+## Usage
+
+```typescript
+import SecretInput from "react-secret-input";
+
+export default function Page() {
+  const [value, setValue] = useState("");
+  return (
+    <SecretInput
+      label="Full Name"
+      defaultValue="Zola Hanna"
+      onChange={(e) => setValue(e.target.value)}
+    />
+  )
+}
+```
