@@ -1,15 +1,15 @@
 export const commands = [
   {
     label: "npm",
-    code: "npm install react-secret-input",
+    code: "npm install @arisevan/react-secret-input",
   },
   {
     label: "pnpm",
-    code: "pnpm add react-secret-input",
+    code: "pnpm add @arisevan/react-secret-inputt",
   },
   {
     label: "yarn",
-    code: "yarn add react-secret-input",
+    code: "yarn add @arisevan/react-secret-input",
   },
 ];
 
@@ -19,7 +19,7 @@ export const code_tailwind = [
     filename: "global.css",
     code: `@import "tailwindcss";
 /* Note: You may need to change the path to fit your project structure */
-@source "../../node_modules/react-secret-input/dist/index.{js,ts,jsx,tsx}";`,
+@source "../../node_modules/@arisevan/react-secret-input/dist/index.{js,ts,jsx,tsx}";`,
   },
 ];
 
@@ -27,7 +27,7 @@ export const code_usage = [
   {
     language: "tsx",
     filename: "page.tsx",
-    code: `import SecretInput from "react-secret-input";
+    code: `import SecretInput from "@arisevan/react-secret-input";
 
 export default function Page() {
   const [value, setValue] = useState("");
