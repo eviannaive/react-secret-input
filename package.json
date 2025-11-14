@@ -25,7 +25,11 @@
     "secret",
     "password",
     "sensitive-data",
-    "form"
+    "form",
+    "tailwind",
+    "tailwindcss",
+    "nextjs",
+    "nextjs component"
   ],
   "peerDependencies": {
     "react": ">=18",
