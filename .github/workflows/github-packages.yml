@@ -1,4 +1,4 @@
-name: Publish to GitHub Packages
+name: Publish Package
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   packages: write
 
 jobs:
-  publish-gpr:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,8 +19,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@eviannaive"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -32,9 +30,27 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Configure registry for npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       # GitHub Packages requires the npm scope to match the repository
       # owner (@eviannaive), which differs from the npmjs.org package
       # name (@arisevan/react-secret-input). Rename only for this publish.
+      - name: Configure registry for GitHub Packages
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@eviannaive"
+
       - name: Set package name for GitHub Packages
         run: npm pkg set name=@eviannaive/react-secret-input
 
