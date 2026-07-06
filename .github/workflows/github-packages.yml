@@ -1,0 +1,44 @@
+name: Publish to GitHub Packages
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@eviannaive"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      # GitHub Packages requires the npm scope to match the repository
+      # owner (@eviannaive), which differs from the npmjs.org package
+      # name (@arisevan/react-secret-input). Rename only for this publish.
+      - name: Set package name for GitHub Packages
+        run: npm pkg set name=@eviannaive/react-secret-input
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
