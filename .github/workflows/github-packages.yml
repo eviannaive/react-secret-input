@@ -9,6 +9,7 @@ on:
 permissions:
   contents: read
   packages: write
+  id-token: write
 
 jobs:
   publish:
@@ -36,10 +37,13 @@ jobs:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
 
+      # npm's Trusted Publishing (OIDC) needs npm >=11.5.1; the version
+      # bundled with Node 22 setup-node is older, so upgrade it first.
+      - name: Update npm
+        run: npm install -g npm@latest
+
       - name: Publish to npm
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # GitHub Packages requires the npm scope to match the repository
       # owner (@eviannaive), which differs from the npmjs.org package
